@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 public class Signup extends AppCompatActivity implements View.OnClickListener {
     EditText edit1,edit2,edit3,edit4;

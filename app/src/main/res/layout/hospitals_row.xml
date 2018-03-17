@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hospitalname"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:text="Hospital Name"
+            />
+
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hospitaldesc"
+            android:padding="10dp"
+            android:text="Hospital Description"
+            android:inputType="textMultiLine"
+            />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:id="@+id/maptext"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Map:"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                />
+            <ImageView
+                android:id="@+id/mapimg"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_action_map"
+                />
+
+
+            <TextView
+                android:id="@+id/contacttext"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Contact:"
+                android:paddingTop="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                />
+            <ImageView
+                android:id="@+id/phoneimg"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_action_phone"
+                />
+
+            <TextView
+                android:id="@+id/websitetext"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Website:"
+                android:paddingTop="5dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                />
+            <ImageView
+                android:id="@+id/websiteimg"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:src="@drawable/ic_action_website"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

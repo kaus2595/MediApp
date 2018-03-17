@@ -19,5 +19,6 @@
 
         <activity android:name=".start_activity">
         </activity>
+        <activity android:name=".Signup"></activity>
     </application>
 </manifest>

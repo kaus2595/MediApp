@@ -7,7 +7,7 @@
     <string name="mail">Mail</string>
     <string name="username">User</string>
     <string name="password">Password</string>
-    <string name="doctor">Are you a Doctor?</string>
+    <string name="doctor">Doctor</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="address">Address</string>
@@ -15,4 +15,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_maps">Maps</string>
+    <string name="nav_list">List</string>
+    <string name="nav_develop">Developers</string>
 </resources>

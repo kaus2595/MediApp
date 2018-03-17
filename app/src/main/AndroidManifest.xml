@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".start_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".start_activity">
-        </activity>
         <activity android:name=".Signup"></activity>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 </manifest>

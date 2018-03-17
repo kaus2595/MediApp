@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "133750945457",
+    "firebase_url": "https://mediapp-30633.firebaseio.com",
+    "project_id": "mediapp-30633",
+    "storage_bucket": "mediapp-30633.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133750945457:android:11bf907f857e78f3",
+        "android_client_info": {
+          "package_name": "com.MediApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133750945457-4qjiqen1j9n85sq2chloq606o42ikkmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlOp5qfM5n3Ba21UpzWzi5GlD1Yiny6iE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

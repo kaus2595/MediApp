@@ -27,6 +27,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
     Boolean b;
     DatabaseReference fbdb;
     profile p;
+    String  name,phone,mail,password;
 
 
     @Override
@@ -46,20 +47,20 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-       String  name = edit1.getText().toString();
-       String  phone = edit2.getText().toString();
-       String mail = edit3.getText().toString();
-       String password = edit4.getText().toString();
+         name = edit1.getText().toString();
+         phone = edit2.getText().toString();
+         mail = edit3.getText().toString();
+         password = edit4.getText().toString();
        b=radiobutton.isChecked();
 
        if(TextUtils.isEmpty(name)&& TextUtils.isEmpty(mail)){
 
            if(TextUtils.isEmpty(password)){
 
-              // Toast.makeText(getApplicationContext(),"enter  passowed").show();
+               Toast.makeText(this,"enter  passowed",Toast.LENGTH_SHORT).show();
            }
            else{
-              // Toast.makeText(getApplicationContext(),"enter uid").show();
+               Toast.makeText(getApplicationContext(),"enter uid",Toast.LENGTH_SHORT).show();
 
            }
        }

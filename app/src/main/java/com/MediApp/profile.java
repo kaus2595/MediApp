@@ -3,7 +3,7 @@ package com.MediApp;
 
 
 public class profile {
-    private String name;
+    private  String name;
     private String phone;
     private String mail;
     private String pass;

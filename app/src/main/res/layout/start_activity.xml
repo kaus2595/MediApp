@@ -84,7 +84,7 @@
         android:layout_width="0dp"
         android:layout_height="86dp"
         android:scaleType="fitXY"
-        android:src="@drawable/LOGO_MEDIAPP"
+        android:src="@drawable/logo_mediapp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintDimensionRatio="w,2:1"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"

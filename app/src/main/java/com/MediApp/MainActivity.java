@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mUserRef;
 
     private TabLayout mTabLayout;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         mTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         mTabLayout.setupWithViewPager(mViewPager);
+        i= getIntent();
+        String user =i.getStringExtra("s");
+
 
     }
 

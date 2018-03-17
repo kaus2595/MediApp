@@ -59,10 +59,10 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
                                             // Sign in success, update UI with the signed-in user's information
-//                                            FirebaseUser user = mAuth.getCurrentUser();
-//                                            Intent i = new Intent (getBaseContext(),MainActivity.class);
-//                                            i.putExtra(s,user);
-//                                            finish();
+                                            String user = mAuth.getCurrentUser().getUid();
+                                            Intent i = new Intent (getBaseContext(),MainActivity.class);
+                                            i.putExtra("s",user);
+                                            finish();
 
                                         } else {
                                             // If sign in fails, display a message to the user.

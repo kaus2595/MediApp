@@ -70,7 +70,7 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
 
                                         }
 
-                                        // ...
+
                                     }
                                 });
 

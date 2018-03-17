@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
       Button button;
       TextView textView;
     GoogleApiClient mGoogle;
+    ImageView imageView;
     private static final int sign=9001;
 
     @Override
@@ -43,9 +45,11 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
         email = findViewById(R.id.editText);
         password = findViewById(R.id.editText2);
         button = findViewById(R.id.button);
-        button.setOnClickListener(this);
+        imageView = findViewById(R.id.imageView2);
+        imageView.setOnClickListener(this);
+
         textView = findViewById(R.id.Signup);
-        textView.setOnClickListener(this);
+      //  textView.setOnClickListener(this);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestProfile()
                 .requestEmail()
@@ -61,6 +65,8 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
     }
     @Override
     public void onClick(View view) {
+
+
 //        switch (view.getId())
 //        {
 //            case R.id.button:
@@ -116,9 +122,11 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
 //
 //        }
 
+//        Intent signInIntent= Auth.GoogleSignInApi.getSignInIntent(mGoogle);
+//        startActivityForResult(signInIntent,sign);
+
         Intent signInIntent= Auth.GoogleSignInApi.getSignInIntent(mGoogle);
         startActivityForResult(signInIntent,sign);
-
         }
 
     public void onActivityResult(int requestcode, int resultcode, Intent data)
@@ -137,7 +145,10 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
         {
             GoogleSignInAccount acc=result.getSignInAccount();
             Intent i=new Intent(getApplicationContext(),MainActivity.class);
-           // name=acc.getDisplayName();
+            String name=acc.getDisplayName();
+            String mail=acc.getEmail();
+            Log.d("Hello",mail);
+            Log.d("Hello",name);
 //            i.putExtra("name",name);
             //Toast.makeText(getApplicationContext(),name,Toast.LENGTH_LONG).show();
             startActivity(i);

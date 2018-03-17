@@ -103,4 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
+    public void Appontment(String userid,String patientId,String date,String time,String Address )
+    {
+
+    }
+
 }

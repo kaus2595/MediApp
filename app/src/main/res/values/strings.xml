@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Medi App</string>
+    <string name="title_activity_signup">signup</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone No.</string>
+    <string name="mail">Mail</string>
+    <string name="username">User</string>
+    <string name="password">Password</string>
+    <string name="doctor">Are you a Doctor?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="address">Address</string>
+
 </resources>

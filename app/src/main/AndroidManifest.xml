@@ -20,5 +20,4 @@
         <activity android:name=".start_activity">
         </activity>
     </application>
-
 </manifest>

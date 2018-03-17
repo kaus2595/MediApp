@@ -71,8 +71,8 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                    if (task.isSuccessful()) {
                        // Sign in success, update UI with the signed-in user's information
                        String user = auth.getCurrentUser().getUid();
-                       Intent i = new Intent (getBaseContext(),MainActivity.class);
-                       i.putExtra("s",user);
+//                       Intent i = new Intent (getBaseContext(),MainActivity.class);
+//                       i.putExtra("s",user);
                        if(b){
                              p=new profile();
                             p.setname(name);

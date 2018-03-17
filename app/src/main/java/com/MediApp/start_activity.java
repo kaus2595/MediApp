@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,7 +32,8 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
         password = findViewById(R.id.editText2);
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.Signup);
+        textView.setOnClickListener(this);
 
     }
     @Override
@@ -78,8 +78,8 @@ public class start_activity extends AppCompatActivity implements View.OnClickLis
                 }
                 break;
 
-            case R.id.textView:
-              //  Toast.makeText(this,"TextView Case",Toast.LENGTH_LONG).show();
+            case R.id.Signup:
+               // Toast.makeText(this,"TextView Case",Toast.LENGTH_LONG).show();
                 Intent i = new Intent(this,Signup.class);
                 startActivity(i);
                 finish();

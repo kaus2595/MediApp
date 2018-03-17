@@ -38,18 +38,16 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="226dp"
-        android:layout_height="46dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="116dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Login"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -116,7 +114,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.85" />
 
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:srcCompat="@drawable/common_plus_signin_btn_icon_dark"
+        tools:layout_editor_absoluteY="338dp" />
 
 
 </android.support.constraint.ConstraintLayout>

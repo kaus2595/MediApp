@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <EditTextvg
         android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="40dp"

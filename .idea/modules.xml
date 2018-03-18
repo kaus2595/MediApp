@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MediApp.iml" filepath="$PROJECT_DIR$/MediApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/MediApp.iml" filepath="$PROJECT_DIR$/.idea/MediApp.iml" />
+      <module fileurl="file://C:\Users\kausr\AndroidStudioProjects\MediApp\.idea\MediApp.iml" filepath="C:\Users\kausr\AndroidStudioProjects\MediApp\.idea\MediApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

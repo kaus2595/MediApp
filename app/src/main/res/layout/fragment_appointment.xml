@@ -1,14 +1,30 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.MediApp.AppointmentFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/hospital_list"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:apiKey="AIzaSyBiyABhNze4AcFESRoXumpOkz02bY_4vlI"
+        android:clickable="true"
+        android:enabled="true"
+        android:focusable="true" />
+    <!--<android.support.design.widget.BottomNavigationView
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_menu"
+        />
+-->
+    <Button
+        android:id="@+id/book_btn"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-    </android.support.v7.widget.RecyclerView>
-
-</FrameLayout>
+        android:text="Book Appointment"
+        />
+</RelativeLayout>

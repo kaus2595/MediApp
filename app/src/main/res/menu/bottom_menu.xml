@@ -6,6 +6,7 @@
         android:icon="@drawable/ic_location_on_black_24dp"
         android:title="@string/nav_maps" />
     <item
+        android:id="@+id/list"
         android:icon="@drawable/ic_view_list_black_24dp"
         android:title="@string/nav_list" />
     <item

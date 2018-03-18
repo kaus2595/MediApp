@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    private DatabaseReference mUserRef;
+  //  private DatabaseReference mUserRef;
 
     private TabLayout mTabLayout;
     Intent i;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (mAuth.getCurrentUser() != null) {
 
 
-            mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
+           // mUserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(mAuth.getCurrentUser().getUid());
 
         }
 

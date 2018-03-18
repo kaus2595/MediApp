@@ -1,14 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.MediApp.AppointmentFragment">
+    android:layout_height="match_parent" >
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/hospital_list"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:apiKey="AIzaSyBiyABhNze4AcFESRoXumpOkz02bY_4vlI"
+        android:clickable="true"
+        android:enabled="true"
+        android:focusable="true" />
 
-    </android.support.v7.widget.RecyclerView>
-
-</FrameLayout>
+</RelativeLayout>

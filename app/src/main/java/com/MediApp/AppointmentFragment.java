@@ -1,159 +1,119 @@
 package com.MediApp;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class AppointmentFragment extends Fragment {
-
-    private FirebaseRecyclerAdapter firebaseRecyclerAdapter;
-    private DatabaseReference mDatabase,mDatabaseUser;
-
-    private RecyclerView mHospital;
-    private FirebaseAuth auth;
-
-    private View mMainView;
-    String uid;
-
-    public AppointmentFragment() {
-        // Required empty public constructor
-    }
-
+    MapView mMapView;
+    GoogleMap  googleMap;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_appointment, container, false);
 
-        auth = FirebaseAuth.getInstance();
+        mMapView = (MapView) rootView.findViewById(R.id.mapView);
+        mMapView.onCreate(savedInstanceState);
 
-        uid=auth.getCurrentUser().getUid();
+        mMapView.onResume(); // needed to get the map to display immediately
 
-        //mProgress=new ProgressDialog(getContext());
+        try {
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        //mDatabaseUser= FirebaseDatabase.getInstance().getReference().child("Users");
-
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("hospital");
-
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        mMainView=inflater.inflate(R.layout.fragment_appointment, container, false);
-        mHospital =(RecyclerView) mMainView.findViewById(R.id.hospital_list);
-
-        mDatabase= FirebaseDatabase.getInstance().getReference().child("hospital");
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setReverseLayout(true);
-        linearLayoutManager.setStackFromEnd(true);
-
-        mHospital.setHasFixedSize(true);
-        mHospital.setLayoutManager(linearLayoutManager);
-
-        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Hospital, HospitalViewHolder>
-                (Hospital.class, R.layout.hospitals_row, HospitalViewHolder.class,
-                        mDatabase) {
-
-
+        mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
-            protected void populateViewHolder(HospitalViewHolder viewHolder, Hospital model, int position) {
+            public void onMapReady(GoogleMap mMap) {
+                googleMap = mMap;
 
-                final String post_key = getRef(position).getKey();
+                // For showing a move to my location button
+                if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+                googleMap.setMyLocationEnabled(true);
 
-                viewHolder.setName(model.getHospital_Name());
-                viewHolder.setDesc(model.getLocation());
+                double lat = 25.3176452;
+                double lng = 82.9739144;
 
-                viewHolder.mview.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getContext(), "Getting Hospital Details", Toast.LENGTH_LONG).show();
+                MarkerOptions marker = new MarkerOptions().position(new LatLng(lat, lng))
+                        .title("Hello Maps ")
+                        .draggable(true)
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN));
+                googleMap.addMarker(marker);
+            googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
 
-                    }
-                });
+                }
+            });
+
             }
 
-        };
-
-        mHospital.setAdapter(firebaseRecyclerAdapter);
-        return mMainView;
-    }
-
-    public static class HospitalViewHolder extends RecyclerView.ViewHolder{
-
-        View mview;
-        TextView hospital_name,hospital_dese;
-
-        ImageView map,contact,website;
-
-        FirebaseAuth mAuth;
-
-        public HospitalViewHolder(View itemView) {
-            super(itemView);
-            mview=itemView;
+            private void goToLocationZoom(double lat, double lng, float z) {
+                LatLng ll = new LatLng(lat, lng);
+                 z = 15;
+                CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, z);
+                googleMap.animateCamera(update);
+            }
 
 
-            mAuth=FirebaseAuth.getInstance();
-            hospital_name= mview.findViewById(R.id.hospitalname);
 
-            hospital_dese= mview.findViewById(R.id.hospitaldesc);
+        });
 
-            map= mview.findViewById(R.id.mapimg);
-            contact= mview.findViewById(R.id.phoneimg);
-            website= mview.findViewById(R.id.websiteimg);
 
-            map.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-
-            contact.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-
-            website.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-
+        return rootView;
         }
 
-        public void setName(String name){
-            TextView hopitalname= mview.findViewById(R.id.hospitalname);
-            hopitalname.setText(name);
+        @Override
+        public void onResume () {
+            super.onResume();
+            mMapView.onResume();
         }
 
-
-        public void setDesc(String desc){
-            TextView hospital_desc= mview.findViewById(R.id.hospitaldesc);
-            hospital_desc.setText(desc);
+        @Override
+        public void onPause () {
+            super.onPause();
+            mMapView.onPause();
         }
 
-    }
+        @Override
+        public void onDestroy () {
+            super.onDestroy();
+            mMapView.onDestroy();
+        }
+
+        @Override
+        public void onLowMemory () {
+            super.onLowMemory();
+            mMapView.onLowMemory();
+        }
 
 }
-

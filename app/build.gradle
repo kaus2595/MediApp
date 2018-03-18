@@ -45,9 +45,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:9.4.0'
     compile 'com.google.maps.android:android-maps-utils:0.5+'
     compile 'com.google.android.gms:play-services-maps:9.4.0'
-
+    compile 'com.google.android.gms:play-services-places:9.4.0'
+    compile 'com.google.android.gms:play-services:9.4.0'
+    compile 'com.google.android.gms:play-services-location:9.4.0'
 
 }
+
 
 
 apply plugin: 'com.google.gms.google-services'

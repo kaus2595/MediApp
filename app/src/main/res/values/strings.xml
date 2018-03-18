@@ -4,9 +4,9 @@
     <string name="signup_button">Sign Up</string>
     <string name="name">Name</string>
     <string name="phone">Phone No.</string>
-    <string name="mail">Mail</string>
+    <string name="mail">Address</string>
     <string name="username">User</string>
-    <string name="password">Password</string>
+    <string name="password">Any Diseases</string>
     <string name="doctor">Doctor</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -16,6 +16,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="nav_maps">Maps</string>
-    <string name="nav_list">List</string>
+    <string name="nav_list">Book Appointment</string>
     <string name="nav_develop">Developers</string>
 </resources>

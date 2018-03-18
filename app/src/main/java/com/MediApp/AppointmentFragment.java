@@ -1,14 +1,19 @@
 package com.MediApp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -26,6 +31,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class AppointmentFragment extends Fragment {
     MapView mMapView;
     GoogleMap  googleMap;
+    private Button book_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +40,14 @@ public class AppointmentFragment extends Fragment {
         mMapView = (MapView) rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
 
+        book_btn=(Button)rootView.findViewById(R.id.book_btn);
+        book_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent detailsIntent=new Intent(getContext(),DetailsActivity.class);
+                startActivity(detailsIntent);
+            }
+        });
         mMapView.onResume(); // needed to get the map to display immediately
 
         try {

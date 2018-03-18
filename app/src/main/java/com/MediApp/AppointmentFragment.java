@@ -1,16 +1,16 @@
 package com.MediApp;
 
-import android.content.Context;
+
+
+import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -42,6 +42,7 @@ public class AppointmentFragment extends Fragment {
 
         book_btn=(Button)rootView.findViewById(R.id.book_btn);
         book_btn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
                 Intent detailsIntent=new Intent(getContext(),DetailsActivity.class);
@@ -57,6 +58,7 @@ public class AppointmentFragment extends Fragment {
         }
 
         mMapView.getMapAsync(new OnMapReadyCallback() {
+            @SuppressLint("NewApi")
             @Override
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
@@ -129,5 +131,4 @@ public class AppointmentFragment extends Fragment {
             super.onLowMemory();
             mMapView.onLowMemory();
         }
-
 }
